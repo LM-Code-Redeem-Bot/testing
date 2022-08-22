@@ -18,12 +18,16 @@ app.get("/:id/:code", async (request, response) => {
     await page.type('#cdkey_1', request.params.code)
     await page.waitForSelector('#btn_claim_1');
     await page.click('#btn_claim_1',{delay: 300})
-    const image = await page.screenshot({fullPage : true});
+    const f = await page.$("#msg")
+    const text = await (await f.getProperty('textContent')).jsonValue()
+    console.log("Text is: " + text)
+    response.send(text)
+//     const image = await page.screenshot({fullPage : true});
     await page.click('#btn_msg_close',{delay: 20})
     await browser.close();
-    response.set('Content-Type', 'image/png');
+//     response.set('Content-Type', 'image/png');
     response.send(image);        
-     return response.status(700).json;  
+//      return response.status(200).json;  
   } catch (error) {
     console.log(error);
   }
