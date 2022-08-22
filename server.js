@@ -14,6 +14,7 @@ app.get("/:id/:code", async (request, response) => {
     });
     const page = await browser.newPage();
     await page.goto('https://lordsmobile.igg.com/gifts/');
+    await page.waitForSelector('#iggid')
     await page.type('#iggid', request.params.id)
     await page.waitForSelector('#cdkey_1')
     await page.type('#cdkey_1', request.params.code)
