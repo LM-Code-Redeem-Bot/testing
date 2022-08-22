@@ -23,12 +23,8 @@ app.get("/:id/:code", async (request, response) => {
     const text = await (await f.getProperty('textContent')).jsonValue()
     console.log("Text is: " + text)
     response.send(text+'*'+request.params.id+'*'+request.params.code)
-//     const image = await page.screenshot({fullPage : true});
     await page.click('#btn_msg_close',{delay: 20})
     await browser.close();
-//     response.set('Content-Type', 'image/png');
-    response.send(image);        
-//      return response.status(200).json;  
   } catch (error) {
     console.log(error);
   }
