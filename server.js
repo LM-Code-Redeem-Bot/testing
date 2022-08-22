@@ -22,7 +22,7 @@ app.get("/:id/:code", async (request, response) => {
     const f = await page.$("#msg")
     const text = await (await f.getProperty('textContent')).jsonValue()
     console.log("Text is: " + text)
-    response.send(text+' '+request.params.id+' '+request.params.code)
+    response.send(text+'*'+request.params.id+'*'+request.params.code)
 //     const image = await page.screenshot({fullPage : true});
     await page.click('#btn_msg_close',{delay: 20})
     await browser.close();
