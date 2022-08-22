@@ -23,7 +23,7 @@ app.get("/:id/:code", async (request, response) => {
     await browser.close();
     response.set('Content-Type', 'image/png');
     response.send(image);        
-     return response.status(200).json;  
+     return response.status(700).json;  
   } catch (error) {
     console.log(error);
   }
