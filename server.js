@@ -1,6 +1,5 @@
 const express = require('express'),app = express();
 const chromium = require('chrome-aws-lambda');
-const playwright = require('playwright-core');
 
 app.get("/:id/:code", async (request, response) => {
     try {
